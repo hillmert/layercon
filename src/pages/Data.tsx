@@ -1,3 +1,6 @@
+import { useTranslation } from 'react-i18next';
+
 export default function Data() {
-return <p className="text-sm text-gray-700">Data Management – sección Data (vacío por ahora).</p>;
+const { t } = useTranslation();
+return <p className="text-sm text-gray-700">{t('data.title')}</p>;
 }
