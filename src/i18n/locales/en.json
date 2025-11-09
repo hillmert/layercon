@@ -1,0 +1,103 @@
+{
+  "app": {
+    "name": "Layercon"
+  },
+  "nav": {
+    "home": "Home",
+    "analytics": "Analytics",
+    "cases": "Cases",
+    "dataManagement": "Data Management",
+    "mapping": "Mapping",
+    "config": "Config",
+    "help": "Help",
+    "skipToContent": "Skip to content",
+    "openMenu": "Open menu",
+    "changeTheme": "Change theme",
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "home": {
+    "createNewCase": "Create new case",
+    "analyticsCard": {
+      "title": "General Analytics",
+      "description": "KPIs and trends (overview)."
+    },
+    "casesCard": {
+      "title": "Cases",
+      "description": "List, form and results per case."
+    },
+    "dataCard": {
+      "title": "Data Management",
+      "description": "Data and Mapping."
+    }
+  },
+  "cases": {
+    "title": "Cases",
+    "createNewCase": "Create new case",
+    "search": "Search",
+    "filterPlaceholder": "Filter by name",
+    "table": {
+      "name": "Name",
+      "method": "Method",
+      "layers": "Layers",
+      "status": "Status",
+      "created": "Created",
+      "noCases": "No cases"
+    },
+    "status": {
+      "idle": "idle",
+      "running": "running",
+      "completed": "completed",
+      "error": "error"
+    }
+  },
+  "createCase": {
+    "title": "Create case",
+    "name": "Name",
+    "method": "Method",
+    "layers": "Layers",
+    "save": "Save",
+    "cancel": "Cancel",
+    "errors": {
+      "nameRequired": "Name required",
+      "layersPositive": "Layers must be > 0"
+    },
+    "formLabel": "Create case form"
+  },
+  "caseDetail": {
+    "notFound": "Case not found.",
+    "method": "Method",
+    "layers": "Layers",
+    "currentStatus": "Current status",
+    "start": "Start",
+    "markCompleted": "Mark completed",
+    "viewResults": "View results"
+  },
+  "results": {
+    "notFound": "Case not found.",
+    "summary": "Summary",
+    "case": "Case",
+    "method": "Method",
+    "layers": "Layers",
+    "status": "Status",
+    "chartTitle": "Series (mock)"
+  },
+  "summary": {
+    "title": "General Analytics",
+    "description": "KPIs and trends (placeholder).",
+    "distributions": "Distributions",
+    "distributionsDesc": "Charts and summaries (placeholder)."
+  },
+  "data": {
+    "title": "Data Management – Data section (empty for now)."
+  },
+  "mapping": {
+    "title": "Data Management – Mapping section (empty for now)."
+  },
+  "config": {
+    "title": "Configuration (placeholder)."
+  },
+  "common": {
+    "method": "Darcy 3 phases"
+  }
+}

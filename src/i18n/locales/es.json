@@ -1,0 +1,103 @@
+{
+  "app": {
+    "name": "Layercon"
+  },
+  "nav": {
+    "home": "Inicio",
+    "analytics": "Analíticas",
+    "cases": "Casos",
+    "dataManagement": "Data Management",
+    "mapping": "Mapping",
+    "config": "Config",
+    "help": "Ayuda",
+    "skipToContent": "Saltar al contenido",
+    "openMenu": "Abrir menú",
+    "changeTheme": "Cambiar tema",
+    "dark": "Oscuro",
+    "light": "Claro"
+  },
+  "home": {
+    "createNewCase": "Crear nuevo caso",
+    "analyticsCard": {
+      "title": "Analíticas generales",
+      "description": "KPIs y tendencias (overview)."
+    },
+    "casesCard": {
+      "title": "Casos",
+      "description": "Lista, formulario y resultados por caso."
+    },
+    "dataCard": {
+      "title": "Data Management",
+      "description": "Data y Mapping."
+    }
+  },
+  "cases": {
+    "title": "Casos",
+    "createNewCase": "Crear nuevo caso",
+    "search": "Buscar",
+    "filterPlaceholder": "Filtrar por nombre",
+    "table": {
+      "name": "Nombre",
+      "method": "Método",
+      "layers": "Capas",
+      "status": "Estado",
+      "created": "Creado",
+      "noCases": "No hay casos"
+    },
+    "status": {
+      "idle": "inactivo",
+      "running": "ejecutando",
+      "completed": "completado",
+      "error": "error"
+    }
+  },
+  "createCase": {
+    "title": "Crear caso",
+    "name": "Nombre",
+    "method": "Método",
+    "layers": "Capas",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "errors": {
+      "nameRequired": "Nombre requerido",
+      "layersPositive": "Capas debe ser > 0"
+    },
+    "formLabel": "Formulario crear caso"
+  },
+  "caseDetail": {
+    "notFound": "Case no encontrado.",
+    "method": "Método",
+    "layers": "Capas",
+    "currentStatus": "Estado actual",
+    "start": "Iniciar",
+    "markCompleted": "Marcar completado",
+    "viewResults": "Ver resultados"
+  },
+  "results": {
+    "notFound": "Case no encontrado.",
+    "summary": "Resumen",
+    "case": "Case",
+    "method": "Método",
+    "layers": "Capas",
+    "status": "Estado",
+    "chartTitle": "Serie (mock)"
+  },
+  "summary": {
+    "title": "Analíticas generales",
+    "description": "KPIs y tendencias (placeholder).",
+    "distributions": "Distribuciones",
+    "distributionsDesc": "Gráficos y resúmenes (placeholder)."
+  },
+  "data": {
+    "title": "Data Management – sección Data (vacío por ahora)."
+  },
+  "mapping": {
+    "title": "Data Management – sección Mapping (vacío por ahora)."
+  },
+  "config": {
+    "title": "Configuración (placeholder)."
+  },
+  "common": {
+    "method": "Darcy 3 phases"
+  }
+}
