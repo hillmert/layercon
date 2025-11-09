@@ -38,4 +38,7 @@ return (
 </LineChart>
 </ResponsiveContainer>
 </div>
+</Card>
+</div>
+);
 }

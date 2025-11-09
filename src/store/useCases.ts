@@ -39,4 +39,18 @@ id: uid(),
 name: c.name,
 method: 'Darcy 3 phases',
 layers: c.layers,
+createdAt: new Date().toISOString(),
+status: 'idle',
+};
+set(state => ({ cases: [...state.cases, newCase] }));
+return newCase;
+},
+updateStatus: (id, status) => {
+set(state => ({
+cases: state.cases.map(c => c.id === id ? { ...c, status } : c)
+}));
+},
+getById: (id) => {
+return get().cases.find(c => c.id === id);
+},
 }));

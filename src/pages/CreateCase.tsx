@@ -37,4 +37,8 @@ return (
 <Button type="submit">Guardar</Button>
 <Button type="button" variant="ghost" onClick={() => nav(routes.cases)}>Cancelar</Button>
 </div>
+</form>
+</Card>
+</div>
+);
 }

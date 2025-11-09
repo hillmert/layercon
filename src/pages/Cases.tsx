@@ -38,4 +38,25 @@ return (
 <TH>Capas</TH>
 <TH>Estado</TH>
 <TH>Creado</TH>
+</TR>
+</THead>
+<TBody>
+{filtered.length === 0 ? (
+<TR><TD colSpan={5} className="text-center text-gray-500">No hay casos</TD></TR>
+) : (
+filtered.map(c => (
+<TR key={c.id}>
+<TD><Link to={routes.caseDetail(c.id)} className="text-primary underline">{c.name}</Link></TD>
+<TD>{c.method}</TD>
+<TD>{c.layers}</TD>
+<TD>{c.status}</TD>
+<TD>{new Date(c.createdAt).toLocaleDateString()}</TD>
+</TR>
+))
+)}
+</TBody>
+</Table>
+</Card>
+</div>
+);
 }
