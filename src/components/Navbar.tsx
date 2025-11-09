@@ -24,9 +24,9 @@ export default function Navbar({ onToggleSidebar }: { onToggleSidebar: () => voi
 const { dark, toggle } = useTheme();
 const { t, i18n } = useTranslation();
 
-const toggleLanguage = () => {
+const toggleLanguage = async () => {
 const newLang = i18n.language === 'en' ? 'es' : 'en';
-i18n.changeLanguage(newLang);
+await i18n.changeLanguage(newLang);
 localStorage.setItem('language', newLang);
 document.documentElement.lang = newLang;
 const skipLink = document.getElementById('skip-link');
@@ -41,7 +41,7 @@ return (
 <h1 className="text-lg font-bold">{t('app.name')}</h1>
 </div>
 <div className="flex items-center gap-2">
-<Button variant="ghost" onClick={toggleLanguage} aria-label="Change language">
+<Button variant="ghost" onClick={toggleLanguage} aria-label={t('nav.changeLanguage')}>
 {i18n.language === 'en' ? '🇪🇸 ES' : '🇺🇸 EN'}
 </Button>
 <Button variant="ghost" onClick={toggle} aria-label={t('nav.changeTheme')}>

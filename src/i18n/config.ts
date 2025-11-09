@@ -17,6 +17,8 @@ i18n
     interpolation: {
       escapeValue: false
     }
+  }).then(() => {
+    document.documentElement.lang = i18n.language;
   });
 
 export default i18n;
