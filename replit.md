@@ -17,6 +17,7 @@ Layercon MVP is a React-based web application for managing and analyzing layer c
 - Status tracking (idle, running, completed, error)
 - Data visualization with charts
 - Dark/Light theme support
+- **Bilingual support (Spanish/English)** with language switcher
 - Responsive sidebar navigation
 - Search and filter capabilities
 
@@ -49,6 +50,13 @@ src/
 ```
 
 ## Recent Changes (Nov 9, 2025)
+- **Implemented complete bilingual support (Spanish/English)**:
+  - Installed and configured i18next and react-i18next
+  - Created comprehensive translation files for both languages
+  - Added language switcher to Navbar with localStorage persistence
+  - Updated all components to use translation hooks
+  - Dynamic HTML lang attribute updates on language change
+  - Default language: Spanish (with English available)
 - Fixed incomplete JSX components that were truncated during GitHub import
 - Completed Cases.tsx with table body rendering filtered cases
 - Completed Results.tsx, CreateCase.tsx, Home.tsx, Navbar.tsx
