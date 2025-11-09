@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+/* === Tachyus Light === */
+--t-primary: 30 58 138; /* #1E3A8A */
+--t-secondary: 14 165 233;/* #0EA5E9 */
+--t-success: 34 197 94; /* #22C55E */
+--t-warning: 245 158 11; /* #F59E0B */
+--t-danger: 239 68 68; /* #EF4444 */
+--t-surface: 249 250 251; /* #F9FAFB */
+--t-on: 17 24 39; /* #111827 */
+--t-muted: 107 114 128; /* #6B7280 */
+}
+
+
+.dark {
+/* === Tachyus Dark === */
+--t-primary: 30 58 138; /* keep brand consistent */
+--t-secondary: 56 189 248;/* slightly brighter in dark */
+--t-success: 34 197 94;
+--t-warning: 245 158 11;
+--t-danger: 239 68 68;
+--t-surface: 11 16 32; /* #0B1020 */
+--t-on: 243 244 246; /* #F3F4F6 */
+--t-muted: 156 163 175; /* #9CA3AF */
+}
+
+
+html, body, #root { height: 100%; }
+
+
+/* Focus styles */
+*:focus-visible { outline: 2px solid rgb(var(--t-secondary)); outline-offset: 2px; }
+
+
+/* Surfaces */
+body { background-color: rgb(var(--t-surface)); color: rgb(var(--t-on)); }

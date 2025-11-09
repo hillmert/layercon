@@ -1,0 +1,18 @@
+[
+{
+"id": "abc123",
+"name": "Case – Darcy 3 phases / Field A",
+"method": "Darcy 3 phases",
+"layers": 5,
+"createdAt": "2025-11-08T12:00:00.000Z",
+"status": "completed"
+},
+{
+"id": "xyz987",
+"name": "Case – Darcy 3 phases / Field B",
+"method": "Darcy 3 phases",
+"layers": 7,
+"createdAt": "2025-11-07T15:30:00.000Z",
+"status": "running"
+}
+]
