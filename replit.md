@@ -54,7 +54,11 @@ src/
 - Completed Results.tsx, CreateCase.tsx, Home.tsx, Navbar.tsx
 - Fixed useCases store implementation (addCase, updateStatus, getById)
 - Updated Table TD component to accept colSpan and other HTML attributes
-- Configured Vite for Replit environment (port 5000, host 0.0.0.0)
+- Configured Vite for Replit environment:
+  - Set port to 5000 (required for webview)
+  - Set host to 0.0.0.0 (required for network access)
+  - Added `allowedHosts: true` (critical for Replit's proxy environment)
+  - Configured HMR clientPort to 443
 - Set up deployment configuration for autoscale
 
 ## Development
