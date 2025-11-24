@@ -4,11 +4,9 @@
   },
   "nav": {
     "home": "Inicio",
-    "analytics": "Analíticas",
-    "cases": "Casos",
-    "dataManagement": "Data Management",
-    "mapping": "Mapping",
-    "config": "Config",
+    "cases": "Simulaciones",
+    "dataManagement": "Gestión de Datos",
+    "configuration": "Configuración",
     "help": "Ayuda",
     "skipToContent": "Saltar al contenido",
     "openMenu": "Abrir menú",
@@ -18,23 +16,27 @@
     "light": "Claro"
   },
   "home": {
-    "createNewCase": "Crear nuevo caso",
-    "analyticsCard": {
-      "title": "Analíticas generales",
-      "description": "KPIs y tendencias (overview)."
+    "title": "Bienvenido a Layercon",
+    "subtitle": "Selecciona un campo para comenzar",
+    "noFields": "No hay campos disponibles",
+    "basin": "Cuenca",
+    "country": "País",
+    "operator": "Operador",
+
+    "retry": "Reintentar",
+    "placeholder": {
+      "basin": "Golfo San Jorge",
+      "country": "Argentina",
+      "operator": "Pan American Energy"
     },
-    "casesCard": {
-      "title": "Casos",
-      "description": "Lista, formulario y resultados por caso."
-    },
-    "dataCard": {
-      "title": "Data Management",
-      "description": "Data y Mapping."
+    "quickAccess": {
+      "dataManagement": "Gestión de Datos",
+      "configuration": "Configuración"
     }
   },
   "cases": {
-    "title": "Casos",
-    "createNewCase": "Crear nuevo caso",
+    "title": "Simulaciones",
+    "createNewCase": "Nueva Simulación",
     "search": "Buscar",
     "filterPlaceholder": "Filtrar por nombre",
     "table": {
@@ -43,7 +45,7 @@
       "layers": "Capas",
       "status": "Estado",
       "created": "Creado",
-      "noCases": "No hay casos"
+      "noCases": "No hay simulaciones"
     },
     "status": {
       "idle": "inactivo",
@@ -53,7 +55,7 @@
     }
   },
   "createCase": {
-    "title": "Crear caso",
+    "title": "Nueva Simulación",
     "name": "Nombre",
     "method": "Método",
     "layers": "Capas",
@@ -63,21 +65,38 @@
       "nameRequired": "Nombre requerido",
       "layersPositive": "Capas debe ser > 0"
     },
-    "formLabel": "Formulario crear caso"
+    "formLabel": "Formulario crear simulación"
   },
   "caseDetail": {
-    "notFound": "Case no encontrado.",
+    "notFound": "Simulación no encontrada.",
     "method": "Método",
     "layers": "Capas",
     "currentStatus": "Estado actual",
-    "start": "Iniciar",
+    "start": "Ejecutar Simulación",
+    "runSimulation": "Ejecutar Simulación",
     "markCompleted": "Marcar completado",
-    "viewResults": "Ver resultados"
+    "viewResults": "Ver resultados",
+    "injectors": "Inyectores",
+    "producers": "Productores",
+    "months": "Meses",
+    "producerWells": "Pozos Productores",
+    "injectorWells": "Pozos Inyectores",
+    "diagnosis": "Diagnóstico",
+    "volumeVsTime": "Volumen vs Tiempo",
+    "filterByWell": "Filtrar por Pozo",
+    "filterByLayer": "Filtrar por Capa",
+    "filterByPhase": "Filtrar por Fase",
+    "allWells": "Todos los Pozos",
+    "allLayers": "Todas las Capas",
+    "oil": "Petróleo",
+    "water": "Agua",
+    "liquid": "Líquido",
+    "gas": "Gas"
   },
   "results": {
-    "notFound": "Case no encontrado.",
+    "notFound": "Simulación no encontrada.",
     "summary": "Resumen",
-    "case": "Case",
+    "case": "Simulación",
     "method": "Método",
     "layers": "Capas",
     "status": "Estado",
@@ -90,13 +109,25 @@
     "distributionsDesc": "Gráficos y resúmenes (placeholder)."
   },
   "data": {
-    "title": "Data Management – sección Data (vacío por ahora)."
+    "title": "Data Management"
   },
   "mapping": {
     "title": "Data Management – sección Mapping (vacío por ahora)."
   },
   "config": {
-    "title": "Configuración (placeholder)."
+    "title": "Configuración",
+    "tabs": {
+      "hierarchy": "Jerarquía",
+      "users": "Usuarios"
+    },
+    "hierarchy": {
+      "title": "Jerarquía del Sistema",
+      "description": "Gestiona la estructura jerárquica de la organización."
+    },
+    "users": {
+      "title": "Gestión de Usuarios",
+      "description": "Administra usuarios y permisos del sistema."
+    }
   },
   "common": {
     "method": "Darcy 3 phases"

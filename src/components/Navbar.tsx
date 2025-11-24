@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button';
+import { MenuIcon, SunIcon, MoonIcon, GlobeIcon } from '@/components/ui/Icons';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -34,22 +35,26 @@ if (skipLink) skipLink.textContent = t('nav.skipToContent');
 };
 
 return (
-<nav className="sticky top-0 z-20 bg-white dark:bg-[#0B1020] border-b border-gray-200 dark:border-gray-800">
-<div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-<div className="flex items-center gap-3">
-<Button aria-label={t('nav.openMenu')} variant="ghost" onClick={onToggleSidebar}>☰</Button>
-<h1 className="text-lg font-bold">{t('app.name')}</h1>
-</div>
-<div className="flex items-center gap-2">
-<Button variant="ghost" onClick={toggleLanguage} aria-label={t('nav.changeLanguage')}>
-{i18n.language === 'en' ? '🇪🇸 ES' : '🇺🇸 EN'}
-</Button>
-<Button variant="ghost" onClick={toggle} aria-label={t('nav.changeTheme')}>
-{dark ? `🌙 ${t('nav.dark')}` : `☀️ ${t('nav.light')}`}
-</Button>
-<a className="text-sm text-primary underline" href="https://tachyus.com" target="_blank" rel="noreferrer">{t('nav.help')}</a>
-</div>
-</div>
-</nav>
+    <nav className="flex-shrink-0 z-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm w-full overflow-x-hidden">
+    <div className="px-4 py-3 flex items-center justify-between min-w-0">
+    <div className="flex items-center gap-3">
+    <Button aria-label={t('nav.openMenu')} variant="ghost" onClick={onToggleSidebar} className="p-2">
+      <MenuIcon className="w-5 h-5" />
+    </Button>
+    <img src="/src/assets/logo.png" alt={t('app.name')} className="h-8 w-auto" />
+    </div>
+    <div className="flex items-center gap-2">
+    <Button variant="ghost" onClick={toggleLanguage} aria-label={t('nav.changeLanguage')} className="flex items-center gap-2">
+      <GlobeIcon className="w-4 h-4" />
+      {i18n.language === 'en' ? 'ES' : 'EN'}
+    </Button>
+    <Button variant="ghost" onClick={toggle} aria-label={t('nav.changeTheme')} className="flex items-center gap-2">
+      {dark ? <MoonIcon className="w-4 h-4" /> : <SunIcon className="w-4 h-4" />}
+      {dark ? t('nav.dark') : t('nav.light')}
+    </Button>
+    <a className="text-sm text-primary dark:text-secondary underline hover:opacity-80 transition-opacity" href="https://tachyus.com" target="_blank" rel="noreferrer">{t('nav.help')}</a>
+    </div>
+    </div>
+    </nav>
 );
 }

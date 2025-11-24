@@ -4,28 +4,28 @@
 
 
 :root {
-/* === Tachyus Light === */
---t-primary: 30 58 138; /* #1E3A8A */
---t-secondary: 14 165 233;/* #0EA5E9 */
---t-success: 34 197 94; /* #22C55E */
---t-warning: 245 158 11; /* #F59E0B */
---t-danger: 239 68 68; /* #EF4444 */
---t-surface: 249 250 251; /* #F9FAFB */
---t-on: 17 24 39; /* #111827 */
---t-muted: 107 114 128; /* #6B7280 */
+/* === Engineering Light Theme === */
+--t-primary: 37 99 235; /* #2563EB - Vibrant blue */
+--t-secondary: 6 182 212; /* #06B6D4 - Cyan accent */
+--t-success: 16 185 129; /* #10B981 - Emerald */
+--t-warning: 251 146 60; /* #FB923C - Orange */
+--t-danger: 239 68 68; /* #EF4444 - Red */
+--t-surface: 248 250 252; /* #F8FAFC - Slate 50 */
+--t-on: 15 23 42; /* #0F172A - Slate 900 */
+--t-muted: 100 116 139; /* #64748B - Slate 500 */
 }
 
 
 .dark {
-/* === Tachyus Dark === */
---t-primary: 30 58 138; /* keep brand consistent */
---t-secondary: 56 189 248;/* slightly brighter in dark */
---t-success: 34 197 94;
---t-warning: 245 158 11;
---t-danger: 239 68 68;
---t-surface: 11 16 32; /* #0B1020 */
---t-on: 243 244 246; /* #F3F4F6 */
---t-muted: 156 163 175; /* #9CA3AF */
+/* === Engineering Dark Theme === */
+--t-primary: 59 130 246; /* #3B82F6 - Brighter blue */
+--t-secondary: 34 211 238; /* #22D3EE - Bright cyan */
+--t-success: 52 211 153; /* #34D399 - Bright emerald */
+--t-warning: 251 146 60; /* #FB923C - Orange */
+--t-danger: 248 113 113; /* #F87171 - Lighter red */
+--t-surface: 15 23 42; /* #0F172A - Slate 900 */
+--t-on: 248 250 252; /* #F8FAFC - Slate 50 */
+--t-muted: 148 163 184; /* #94A3B8 - Slate 400 */
 }
 
 

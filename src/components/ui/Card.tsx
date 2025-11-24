@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 export default function Card({ children, className }: PropsWithChildren<{ className?: string }>) {
 return (
-<div className={clsx('bg-white dark:bg-[#0F162B] text-inherit rounded-2xl shadow-soft border border-gray-100 dark:border-gray-800', className)}>
+<div className={clsx('bg-white dark:bg-slate-800/50 text-inherit rounded-xl shadow-lg border border-slate-200 dark:border-slate-700/50 backdrop-blur-sm transition-all duration-200 hover:shadow-xl hover:border-primary/20 dark:hover:border-secondary/30', className)}>
 {children}
 </div>
 );

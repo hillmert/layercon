@@ -1,0 +1,945 @@
+{
+  "tabs": [
+    {
+      "id": "general",
+      "label": "General",
+      "sections": [
+        {
+          "title": "Basic Configuration",
+          "columns": 2,
+          "fields": [
+            {
+              "name": "case_name",
+              "label": "Simulation Name",
+              "type": "text",
+              "required": true,
+              "defaultValue": "",
+              "scope": "general/case_name"
+            },
+            {
+              "name": "model_framework",
+              "label": "Model Framework",
+              "type": "select",
+              "options": ["Tank Level", "Tank Level Uncertain Productions", "Pattern Level"],
+              "defaultValue": "Pattern Level",
+              "scope": "general/model_framework"
+            },
+            {
+              "name": "primary_production_approach",
+              "label": "Primary Production Approach",
+              "type": "select",
+              "options": ["None", "User Input", "Tank Level Darcy Approach"],
+              "defaultValue": "None",
+              "showIf": {
+                "field": "model_framework",
+                "value": "Pattern Level"
+              }
+            },
+            {
+              "name": "injection_allocation_approach",
+              "label": "Injection Allocation Approach",
+              "type": "select",
+              "options": [
+                {
+                  "value": "User Input",
+                  "hideIf": {
+                    "operator": "OR",
+                    "conditions": [
+                      {
+                        "field": "primary_production_approach",
+                        "value": "Tank Level Darcy Approach"
+                      },
+                      {
+                        "field": "primary_production_approach",
+                        "value": "User Input"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "value": "Mass Balance"
+                },
+                {
+                  "value": "Darcy Approach",
+                  "hideIf": {
+                    "operator": "OR",
+                    "conditions": [
+                      {
+                        "field": "primary_production_approach",
+                        "value": "Tank Level Darcy Approach"
+                      },
+                      {
+                        "field": "primary_production_approach",
+                        "value": "User Input"
+                      }
+                    ]
+                  }
+                }
+              ],
+              "defaultValue": "Mass Balance",
+              "showIf": {
+                "field": "model_framework",
+                "value": "Pattern Level"
+              }
+            },
+            {
+              "name": "production_allocation_approach",
+              "label": "Production Allocation Approach",
+              "type": "select",
+              "options": [
+                {
+                  "value": "Darcy Approach",
+                  "showIf": {
+                    "operator": "OR",
+                    "conditions": [
+                      {
+                        "operator": "AND",
+                        "conditions": [
+                          {
+                            "field": "primary_production_approach",
+                            "value": "None"
+                          },
+                          {
+                            "field": "injection_allocation_approach",
+                            "value": "User Input"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "conditions": [
+                          {
+                            "field": "primary_production_approach",
+                            "value": "None"
+                          },
+                          {
+                            "field": "injection_allocation_approach",
+                            "value": "Darcy Approach"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "conditions": [
+                          {
+                            "field": "primary_production_approach",
+                            "value": "Tank Level Darcy Approach"
+                          },
+                          {
+                            "field": "injection_allocation_approach",
+                            "value": "Mass Balance"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "value": "Buckley-Leverett",
+                  "showIf": {
+                    "operator": "OR",
+                    "conditions": [
+                      {
+                        "operator": "AND",
+                        "conditions": [
+                          {
+                            "field": "primary_production_approach",
+                            "value": "None"
+                          },
+                          {
+                            "field": "injection_allocation_approach",
+                            "value": "Mass Balance"
+                          }
+                        ]
+                      },
+                      {
+                        "operator": "AND",
+                        "conditions": [
+                          {
+                            "field": "primary_production_approach",
+                            "value": "User Input"
+                          },
+                          {
+                            "field": "injection_allocation_approach",
+                            "value": "Mass Balance"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ],
+              "defaultValue": "Buckley-Leverett",
+              "showIf": {
+                "field": "model_framework",
+                "value": "Pattern Level"
+              }
+            },
+            {
+              "name": "model_type",
+              "label": "Model Type",
+              "type": "select",
+              "options": ["3-phase", "2-phase"],
+              "defaultValue": "3-phase"
+            },
+            {
+              "name": "model_level",
+              "label": "Model Level",
+              "type": "select",
+              "options": ["Layer", "Well"],
+              "defaultValue": "Layer"
+            },
+            {
+              "name": "bhp_type",
+              "label": "BHP Type",
+              "type": "select",
+              "options": ["Constant Drawdown Percent", "File"],
+              "defaultValue": "Constant Drawdown Percent"
+            },
+            {
+              "name": "bhp_drawdown",
+              "label": "BHP Drawdown (%)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 30.0,
+              "showIf": {
+                "field": "bhp_type",
+                "value": "Constant Drawdown Percent"
+              }
+            },
+            {
+              "name": "constant_bhp_value",
+              "label": "Constant BHP Value (psi)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 500.0,
+              "showIf": {
+                "field": "bhp_type",
+                "value": "Constant BHP"
+              }
+            },
+            {
+              "name": "minimum_primary_decline",
+              "label": "Min Primary Decline (%)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 5.0
+            }
+          ]
+        },
+        {
+          "title": "Connection Settings",
+          "columns": 2,
+          "fields": [
+            {
+              "name": "minimum_distance_for_connections",
+              "label": "Min Distance for Connections (ft)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 2788.0
+            },
+            {
+              "name": "connection_lag_months",
+              "label": "Connection Lag (months)",
+              "type": "number",
+              "defaultValue": 9
+            },
+            {
+              "name": "units_system",
+              "label": "Units System",
+              "type": "select",
+              "options": [
+                {
+                  "value": "Field"
+                },
+                {
+                  "value": "Metric"
+                },
+                {
+                  "value": "SI",
+                  "hideIf": {
+                    "field": "model_level",
+                    "value": "Layer"
+                  }
+                }
+              ],
+              "defaultValue": "Field"
+            }
+          ]
+        },
+        {
+          "title": "Options",
+          "columns": 1,
+          "fields": [
+            {
+              "name": "export_primary",
+              "label": "Export Primary",
+              "type": "checkbox",
+              "defaultValue": true
+            },
+            {
+              "name": "decline_all_layers",
+              "label": "Decline All Layers",
+              "type": "checkbox",
+              "defaultValue": true
+            },
+            {
+              "name": "cut_primary_after_flooding",
+              "label": "Cut Primary After Flooding",
+              "type": "checkbox",
+              "defaultValue": false
+            },
+            {
+              "name": "advanced_primary_settings",
+              "label": "Advanced Primary Settings",
+              "type": "checkbox",
+              "defaultValue": false,
+              "showIf": {
+                "operator": "AND",
+                "conditions": [
+                  {
+                    "field": "export_primary",
+                    "value": true
+                  },
+                  {
+                    "field": "decline_all_layers",
+                    "value": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "sections": [
+        {
+          "title": "Injection Rates",
+          "columns": 1,
+          "fields": [
+            {
+              "name": "injection_rates_source",
+              "label": "Data Source",
+              "type": "toggle",
+              "options": [
+                { "value": "file", "label": "Load File" },
+                { "value": "live", "label": "Use Live Data" }
+              ],
+              "defaultValue": "live"
+            },
+            {
+              "name": "injection_rates",
+              "label": "Injection Rates File",
+              "type": "file",
+              "optional": false,
+              "defaultValue": null,
+              "showIf": {
+                "field": "injection_rates_source",
+                "value": "file"
+              }
+            }]
+        },
+        {
+          "title": "Production Rates",
+          "columns": 1,
+          "fields": [
+            {
+              "name": "production_rates_source",
+              "label": "Data Source",
+              "type": "toggle",
+              "options": [
+                { "value": "file", "label": "Load File" },
+                { "value": "live", "label": "Use Live Data" }
+              ],
+              "defaultValue": "live"
+            },
+            {
+              "name": "production_rates",
+              "label": "Production Rates File",
+              "type": "file",
+              "optional": false,
+              "defaultValue": null,
+              "showIf": {
+                "field": "production_rates_source",
+                "value": "file"
+              }
+            }]
+        },
+        {
+          "title": "Connection List",
+          "columns": 1,
+          "fields": [
+            {
+              "name": "connection_list_source",
+              "label": "Data Source",
+              "type": "toggle",
+              "options": [
+                { "value": "file", "label": "Load File" },
+                { "value": "live", "label": "Use Live Data" }
+              ],
+              "defaultValue": "live",
+              "showIf": {
+                "field": "model_framework",
+                "value": "Pattern Level"
+              }
+            },
+            {
+              "name": "connection_list",
+              "label": "Connection List File",
+              "type": "file",
+              "optional": false,
+              "defaultValue": null,
+              "showIf": {
+                "operator": "AND",
+                "conditions": [
+                  {
+                    "field": "model_framework",
+                    "value": "Pattern Level"
+                  },
+                  {
+                    "field": "connection_list_source",
+                    "value": "file"
+                  }
+                ]
+              }
+            }]
+        },
+        {
+          "title": "PVT Tables",
+          "columns": 1,
+          "fields": [
+            {
+              "name": "pvto_file_source",
+              "label": "Oil PVT Data Source",
+              "type": "toggle",
+              "options": [
+                { "value": "file", "label": "Load File" },
+                { "value": "live", "label": "Use Live Data" }
+              ],
+              "defaultValue": "live",
+              "requiredIf": {
+                "field": "model_type",
+                "value": "3-phase"
+              }
+            },
+            {
+              "name": "pvto_file",
+              "label": "Oil PVT Table (pvto_file)",
+              "type": "file",
+              "optional": true,
+              "defaultValue": null,
+              "showIf": {
+                "operator": "AND",
+                "conditions": [
+                  {
+                    "field": "model_type",
+                    "value": "3-phase"
+                  },
+                  {
+                    "field": "pvto_file_source",
+                    "value": "file"
+                  }
+                ]
+              }
+            },
+
+            {
+              "name": "pvtg_file_source",
+              "label": "Gas PVT Data Source",
+              "type": "toggle",
+              "options": [
+                { "value": "file", "label": "Load File" },
+                { "value": "live", "label": "Use Live Data" }
+              ],
+              "defaultValue": "live",
+              "requiredIf": {
+                "field": "model_type",
+                "value": "3-phase"
+              }
+            },
+            {
+              "name": "pvtg_file",
+              "label": "Gas PVT Table (pvtg_file)",
+              "type": "file",
+              "optional": true,
+              "defaultValue": null,
+              "showIf": {
+                "operator": "AND",
+                "conditions": [
+                  {
+                    "field": "model_type",
+                    "value": "3-phase"
+                  },
+                  {
+                    "field": "pvtg_file_source",
+                    "value": "file"
+                  }
+                ]
+              }
+            }]
+        }
+      ]
+    },
+    {
+      "id": "densities",
+      "label": "Densities",
+      "sections": [
+        {
+          "title": "Standard Densities",
+          "columns": 3,
+          "fields": [
+            {
+              "name": "oil_density",
+              "label": "Oil Density (lb/ft³)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 45.0
+            },
+            {
+              "name": "water_density",
+              "label": "Water Density (lb/ft³)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 64.0
+            },
+            {
+              "name": "gas_density",
+              "label": "Gas Density (lb/ft³)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluids",
+      "label": "Fluids",
+      "sections": [
+        {
+          "title": "Oil Properties",
+          "columns": 2,
+          "fields": [
+            {
+              "name": "b_oil",
+              "label": "Formation Volume Factor (b_oil)",
+              "type": "number",
+              "step": 0.01,
+              "defaultValue": 1.2
+            },
+            {
+              "name": "c_oil",
+              "label": "Compressibility (c_oil)",
+              "type": "number",
+              "step": 0.000001,
+              "defaultValue": 0.00001
+            },
+            {
+              "name": "pr_oil",
+              "label": "Reference Pressure (pr_oil)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 14.7
+            },
+            {
+              "name": "mu_oil",
+              "label": "Viscosity (mu_oil)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 3.0
+            },
+            {
+              "name": "c_mu_oil",
+              "label": "Viscosity Compressibility (c_mu_oil)",
+              "type": "number",
+              "step": 0.000001,
+              "defaultValue": 0.00008
+            },
+            {
+              "name": "pr_mu_oil",
+              "label": "Viscosity Ref Pressure (pr_mu_oil)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 14.7
+            }
+          ]
+        },
+        {
+          "title": "Water Properties",
+          "columns": 2,
+          "fields": [
+            {
+              "name": "b_water",
+              "label": "Formation Volume Factor (b_water)",
+              "type": "number",
+              "step": 0.01,
+              "defaultValue": 1.0
+            },
+            {
+              "name": "c_water",
+              "label": "Compressibility (c_water)",
+              "type": "number",
+              "step": 0.000001,
+              "defaultValue": 0.00001
+            },
+            {
+              "name": "pr_water",
+              "label": "Reference Pressure (pr_water)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 14.7
+            },
+            {
+              "name": "mu_water",
+              "label": "Viscosity (mu_water)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 1.0
+            },
+            {
+              "name": "c_mu_water",
+              "label": "Viscosity Compressibility (c_mu_water)",
+              "type": "number",
+              "step": 0.000001,
+              "defaultValue": 0.00008
+            },
+            {
+              "name": "pr_mu_water",
+              "label": "Viscosity Ref Pressure (pr_mu_water)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 14.7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "expert",
+      "label": "Expert",
+      "sections": [
+        {
+          "title": "Solver Configuration",
+          "columns": 2,
+          "fields": [
+            {
+              "name": "solver_type",
+              "label": "Solver Type",
+              "type": "select",
+              "options": ["Explicit", "Implicit"],
+              "defaultValue": "Explicit"
+            },
+            {
+              "name": "number_of_iterations",
+              "label": "Number of Iterations",
+              "type": "number",
+              "defaultValue": 4
+            },
+            {
+              "name": "random_seed",
+              "label": "Random Seed",
+              "type": "number",
+              "defaultValue": 100
+            },
+            {
+              "name": "ensemble_size",
+              "label": "Ensemble Size",
+              "type": "number",
+              "defaultValue": 50
+            },
+            {
+              "name": "measurement_p",
+              "label": "Measurement P",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 4.0
+            }
+          ]
+        },
+        {
+          "title": "Forecast Settings",
+          "columns": 3,
+          "fields": [
+            {
+              "name": "forecast_years",
+              "label": "Forecast Years",
+              "type": "number",
+              "defaultValue": 36
+            },
+            {
+              "name": "forecast_min_oil",
+              "label": "Forecast Min Oil",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 3.0
+            },
+            {
+              "name": "forecast_p_decline",
+              "label": "Forecast P Decline",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 20.0
+            },
+            {
+              "name": "min_radius",
+              "label": "Min Radius (ft)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 300.0
+            },
+            {
+              "name": "max_recovery",
+              "label": "Max Recovery (%)",
+              "type": "number",
+              "step": 0.1,
+              "defaultValue": 15.0
+            }
+          ]
+        },
+        {
+          "title": "Options",
+          "columns": 1,
+          "fields": [
+            {
+              "name": "match_gas",
+              "label": "Match Gas",
+              "type": "checkbox",
+              "defaultValue": false
+            },
+            {
+              "name": "forecast_primary",
+              "label": "Forecast Primary",
+              "type": "checkbox",
+              "defaultValue": true
+            },
+            {
+              "name": "allow_increasing_obj",
+              "label": "Allow Increasing Objective",
+              "type": "checkbox",
+              "defaultValue": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "variants": [
+    {
+      "id": "v2_tank_level",
+      "route": "new_case_v2",
+      "ssbaVersion": "v2.0",
+      "conditions": [
+        {
+          "field": "model_framework",
+          "value": "Tank Level"
+        }
+      ]
+    },
+    {
+      "id": "v5_tank_level_uncertain",
+      "route": "new_case_v5",
+      "ssbaVersion": "v5.0",
+      "conditions": [
+        {
+          "field": "model_framework",
+          "value": "Tank Level Uncertain Productions"
+        }
+      ]
+    },
+    {
+      "id": "v1_pattern_bl",
+      "route": "new_case_v1",
+      "ssbaVersion": null,
+      "conditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "field": "model_framework",
+              "value": "Pattern Level"
+            },
+            {
+              "operator": "OR",
+              "conditions": [
+                {
+                  "field": "primary_production_approach",
+                  "value": "None"
+                },
+                {
+                  "field": "primary_production_approach",
+                  "value": "User Input"
+                }
+              ]
+            },
+            {
+              "field": "injection_allocation_approach",
+              "value": "Mass Balance"
+            },
+            {
+              "field": "production_allocation_approach",
+              "value": "Buckley-Leverett"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2_pattern_darcy_user_injection",
+      "route": "new_case_v2",
+      "ssbaVersion": "v2.0",
+      "conditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "field": "model_framework",
+              "value": "Pattern Level"
+            },
+            {
+              "field": "primary_production_approach",
+              "value": "None"
+            },
+            {
+              "field": "injection_allocation_approach",
+              "value": "User Input"
+            },
+            {
+              "field": "production_allocation_approach",
+              "value": "Darcy Approach"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v3_pattern_darcy_tank_primary",
+      "route": "new_case_v3",
+      "ssbaVersion": "v3.0",
+      "conditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "field": "model_framework",
+              "value": "Pattern Level"
+            },
+            {
+              "field": "primary_production_approach",
+              "value": "Tank Level Darcy Approach"
+            },
+            {
+              "field": "injection_allocation_approach",
+              "value": "Mass Balance"
+            },
+            {
+              "field": "production_allocation_approach",
+              "value": "Darcy Approach"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v4_pattern_darcy_full",
+      "route": "new_case_v4",
+      "ssbaVersion": "v4.0",
+      "conditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "field": "model_framework",
+              "value": "Pattern Level"
+            },
+            {
+              "field": "primary_production_approach",
+              "value": "None"
+            },
+            {
+              "field": "injection_allocation_approach",
+              "value": "Darcy Approach"
+            },
+            {
+              "field": "production_allocation_approach",
+              "value": "Darcy Approach"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  "dependencies": [
+    {
+      "description": "Darcy model: hide PVT files and solver type for 2-phase",
+      "if": {
+        "field": "model_type",
+        "value": "2-phase"
+      },
+      "thenReadOnly": [
+        "pvto_file",
+        "pvtg_file",
+        "solver_type"
+      ]
+    },
+    {
+      "description": "BHP mode: drawdown vs producer BHPs",
+      "if": {
+        "field": "bhp_type",
+        "value": "File"
+      },
+      "thenReadOnly": [
+        "bhp_drawdown"
+      ],
+      "elseReadOnly": [
+        "producer_bhps"
+      ]
+    },
+    {
+      "description": "Layer model with no primary export: disable primary-related settings",
+      "if": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "field": "model_level",
+            "value": "Layer"
+          },
+          {
+            "field": "export_primary",
+            "value": false
+          }
+        ]
+      },
+      "thenReadOnly": [
+        "pattern_file",
+        "minimum_distance_for_connections",
+        "minimum_primary_decline",
+        "cut_primary_after_flooding",
+        "connection_lag_months",
+        "decline_all_layers",
+        "forecast_primary"
+      ]
+    },
+    {
+      "description": "If forecast_primary is off, freeze forecast parameters",
+      "if": {
+        "field": "forecast_primary",
+        "value": false
+      },
+      "thenReadOnly": [
+        "forecast_years",
+        "forecast_min_oil",
+        "forecast_p_decline",
+        "min_radius",
+        "max_radius",
+        "max_recovery"
+      ]
+    }
+  ]
+}
+

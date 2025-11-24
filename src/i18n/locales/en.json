@@ -4,11 +4,9 @@
   },
   "nav": {
     "home": "Home",
-    "analytics": "Analytics",
-    "cases": "Cases",
+    "cases": "Simulations",
     "dataManagement": "Data Management",
-    "mapping": "Mapping",
-    "config": "Config",
+    "configuration": "Configuration",
     "help": "Help",
     "skipToContent": "Skip to content",
     "openMenu": "Open menu",
@@ -18,23 +16,27 @@
     "light": "Light"
   },
   "home": {
-    "createNewCase": "Create new case",
-    "analyticsCard": {
-      "title": "General Analytics",
-      "description": "KPIs and trends (overview)."
+    "title": "Welcome to Layercon",
+    "subtitle": "Select a field to get started",
+    "noFields": "No fields available",
+    "basin": "Basin",
+    "country": "Country",
+    "operator": "Operator",
+
+    "retry": "Retry",
+    "placeholder": {
+      "basin": "Golfo San Jorge",
+      "country": "Argentina",
+      "operator": "Pan American Energy"
     },
-    "casesCard": {
-      "title": "Cases",
-      "description": "List, form and results per case."
-    },
-    "dataCard": {
-      "title": "Data Management",
-      "description": "Data and Mapping."
+    "quickAccess": {
+      "dataManagement": "Data Management",
+      "configuration": "Configuration"
     }
   },
   "cases": {
-    "title": "Cases",
-    "createNewCase": "Create new case",
+    "title": "Simulations",
+    "createNewCase": "New Simulation",
     "search": "Search",
     "filterPlaceholder": "Filter by name",
     "table": {
@@ -43,7 +45,7 @@
       "layers": "Layers",
       "status": "Status",
       "created": "Created",
-      "noCases": "No cases"
+      "noCases": "No simulations"
     },
     "status": {
       "idle": "idle",
@@ -53,7 +55,7 @@
     }
   },
   "createCase": {
-    "title": "Create case",
+    "title": "New Simulation",
     "name": "Name",
     "method": "Method",
     "layers": "Layers",
@@ -63,21 +65,38 @@
       "nameRequired": "Name required",
       "layersPositive": "Layers must be > 0"
     },
-    "formLabel": "Create case form"
+    "formLabel": "Create simulation form"
   },
   "caseDetail": {
-    "notFound": "Case not found.",
+    "notFound": "Simulation not found.",
     "method": "Method",
     "layers": "Layers",
     "currentStatus": "Current status",
-    "start": "Start",
+    "start": "Run Simulation",
+    "runSimulation": "Run Simulation",
     "markCompleted": "Mark completed",
-    "viewResults": "View results"
+    "viewResults": "View results",
+    "injectors": "Injectors",
+    "producers": "Producers",
+    "months": "Months",
+    "producerWells": "Producer Wells",
+    "injectorWells": "Injector Wells",
+    "diagnosis": "Diagnosis",
+    "volumeVsTime": "Volume vs Time",
+    "filterByWell": "Filter by Well",
+    "filterByLayer": "Filter by Layer",
+    "filterByPhase": "Filter by Phase",
+    "allWells": "All Wells",
+    "allLayers": "All Layers",
+    "oil": "Oil",
+    "water": "Water",
+    "gas": "Gas",
+    "liquid": "Liquid"
   },
   "results": {
-    "notFound": "Case not found.",
+    "notFound": "Simulation not found.",
     "summary": "Summary",
-    "case": "Case",
+    "case": "Simulation",
     "method": "Method",
     "layers": "Layers",
     "status": "Status",
@@ -90,13 +109,25 @@
     "distributionsDesc": "Charts and summaries (placeholder)."
   },
   "data": {
-    "title": "Data Management – Data section (empty for now)."
+    "title": "Data Management"
   },
   "mapping": {
     "title": "Data Management – Mapping section (empty for now)."
   },
   "config": {
-    "title": "Configuration (placeholder)."
+    "title": "Configuration",
+    "tabs": {
+      "hierarchy": "Hierarchy",
+      "users": "Users"
+    },
+    "hierarchy": {
+      "title": "System Hierarchy",
+      "description": "Manage the organizational hierarchy structure."
+    },
+    "users": {
+      "title": "User Management",
+      "description": "Manage system users and permissions."
+    }
   },
   "common": {
     "method": "Darcy 3 phases"
