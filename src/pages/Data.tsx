@@ -42,13 +42,7 @@ export default function Data() {
   const [queryError, setQueryError] = useState<string | null>(null);
 
   // Extract all file type fields from the schema
-  const fileFields: FileField[] = formSchema.tabschoco : El término 'choco' no se reconoce como nombre de un cmdlet, función, archivo de script o programa ejecutable. Compruebe si escribió correctamente el nombre o, si incluyó una ruta de acceso, compruebe que dicha 
-ruta es correcta e inténtelo de nuevo.
-En línea: 1 Carácter: 1
-+ choco install heroku-cli
-+ ~~~~~
-    + CategoryInfo          : ObjectNotFound: (choco:String) [], CommandNotFoundException
-    + FullyQualifiedErrorId : CommandNotFoundException
+  const fileFields: FileField[] = formSchema.tabs
     .flatMap((tab: any) => tab.sections || [])
     .flatMap((section: any) => section.fields || [])
     .filter((field: any) => field.type === 'file');

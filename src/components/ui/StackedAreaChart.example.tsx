@@ -105,5 +105,9 @@ export function ExplicitMaxExample() {
     <StackedAreaChart
       data={data}
       categories={['Metric A', 'Metric B']}
-      maxValue={200}  // Force Y-axis to go up to 200
-      yAxisLabel=
+      maxValue={200}
+      yAxisLabel="Value"
+      xAxisLabel="Date"
+    />
+  );
+}
